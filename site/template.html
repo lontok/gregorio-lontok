@@ -1,0 +1,142 @@
+<title>Lolo Gregorio B. Lontok</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;0,700;1,400&family=Public+Sans:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one reading column like a bound station report, with a field-ledger timeline and plot-record tables. */
+:root {
+  --ground: #eef2ec;      /* pale cane-leaf */
+  --paper: #f8faf6;
+  --ink: #1d2a22;         /* deep field green-black */
+  --muted: #56645a;
+  --rule: #c9d3c8;
+  --cane: #2f6b45;        /* cane green, the accent */
+  --muscovado: #7a5a2b;   /* raw-sugar brown, secondary */
+  --ok-bg: #dcecdf; --ok-fg: #1f5a34;
+  --part-bg: #f3e7c9; --part-fg: #6b4d0f;
+  --fam-bg: #e2e6ef; --fam-fg: #37436a;
+  --display: "Spectral", Georgia, "Times New Roman", serif;
+  --body: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --ground: #121814; --paper: #19211c; --ink: #e3ebe3; --muted: #a2b0a5; --rule: #2f3b33;
+  --cane: #7cc596; --muscovado: #d6ae6f;
+  --ok-bg: #1f3a28; --ok-fg: #a6dcb6; --part-bg: #3d3218; --part-fg: #ecd08f; --fam-bg: #252c42; --fam-fg: #b8c4ee;
+  color-scheme: dark } }
+:root[data-theme="dark"] {
+  --ground: #121814; --paper: #19211c; --ink: #e3ebe3; --muted: #a2b0a5; --rule: #2f3b33;
+  --cane: #7cc596; --muscovado: #d6ae6f;
+  --ok-bg: #1f3a28; --ok-fg: #a6dcb6; --part-bg: #3d3218; --part-fg: #ecd08f; --fam-bg: #252c42; --fam-fg: #b8c4ee;
+  color-scheme: dark }
+
+* { box-sizing: border-box; }
+body { background: var(--ground); color: var(--ink); font-family: var(--body); font-size: 17px; line-height: 1.65; padding: 0 16px; }
+.wrap { max-width: 46rem; margin: 0 auto; padding-block: 3rem 5rem; }
+a { color: var(--cane); text-underline-offset: 2px; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+a:focus-visible { outline: 2px solid var(--cane); outline-offset: 2px; border-radius: 2px; }
+
+header.hero { border-bottom: 3px double var(--rule); padding-bottom: 2rem; margin-bottom: 2rem; }
+.eyebrow { font-family: var(--mono); font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muscovado); margin: 0 0 .6rem; }
+h1 { font-family: var(--display); font-weight: 700; font-size: clamp(2.3rem, 7vw, 3.6rem); line-height: 1.05; margin: 0 0 .4rem; text-wrap: balance; letter-spacing: -.01em; }
+.dates { font-family: var(--display); font-style: italic; font-size: 1.35rem; color: var(--muted); margin: 0 0 1.4rem; }
+.lede { font-family: var(--display); font-size: 1.2rem; line-height: 1.6; margin: 0; }
+
+h2 { font-family: var(--display); font-weight: 600; font-size: 1.75rem; line-height: 1.2; margin: 3.2rem 0 1rem; text-wrap: balance; }
+h2 .yrs { display: block; font-family: var(--mono); font-weight: 400; font-size: .78rem; letter-spacing: .08em; color: var(--muscovado); margin-bottom: .35rem; }
+p { margin: 0 0 1.05rem; }
+
+.chip { display: inline-block; font-family: var(--mono); font-size: .72rem; font-weight: 500; line-height: 1; padding: .3em .55em .28em; border-radius: 3px; white-space: nowrap; vertical-align: .12em; }
+.chip.a { background: var(--ok-bg); color: var(--ok-fg); }
+.chip.b { background: var(--part-bg); color: var(--part-fg); }
+.chip.c { background: var(--fam-bg); color: var(--fam-fg); }
+
+.legend { background: var(--paper); border: 1px solid var(--rule); padding: 1.1rem 1.25rem; margin: 2rem 0; }
+.legend h3 { font-family: var(--mono); font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; margin: 0 0 .7rem; color: var(--muted); font-weight: 500; }
+.legend ul { list-style: none; margin: 0 0 .6rem; padding: 0; display: grid; gap: .5rem; }
+.legend li { display: grid; grid-template-columns: 7.2rem 1fr; gap: .8rem; align-items: baseline; }
+.legend li .chip { justify-self: start; }
+.legend p { margin: 0; font-size: .92rem; color: var(--muted); }
+
+.ledger { margin: 2rem 0 1rem; border-top: 1px solid var(--rule); }
+.ledger h3 { font-family: var(--mono); font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); font-weight: 500; margin: 1rem 0 .4rem; }
+.ledger ol { list-style: none; margin: 0; padding: 0; }
+.ledger li { display: grid; grid-template-columns: 5.6rem 1fr auto; gap: .9rem; align-items: baseline; padding: .55rem 0; border-bottom: 1px dotted var(--rule); }
+.ledger .yr { font-family: var(--mono); font-variant-numeric: tabular-nums; color: var(--muscovado); font-size: .92rem; }
+.ledger .ev { min-width: 0; }
+
+figure.docs { margin: 2rem 0; }
+figure.docs .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+figure.docs img { width: 100%; height: auto; display: block; border: 1px solid var(--rule); background: #fff; }
+figure.docs figcaption { font-size: .9rem; color: var(--muted); margin-top: .7rem; }
+
+.table-wrap { overflow-x: auto; margin: 1.2rem 0 1.8rem; border: 1px solid var(--rule); background: var(--paper); }
+table { border-collapse: collapse; width: 100%; font-size: .9rem; line-height: 1.5; }
+th, td { text-align: left; vertical-align: top; padding: .6rem .75rem; border-bottom: 1px solid var(--rule); }
+th { font-family: var(--mono); font-weight: 500; font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); background: var(--ground); }
+tr:last-child td { border-bottom: 0; }
+td:first-child { min-width: 9rem; }
+td { min-width: 6rem; }
+
+ol.next { padding-left: 1.3rem; }
+ol.next li { margin-bottom: .7rem; }
+ol.next li::marker { font-family: var(--mono); color: var(--muscovado); }
+
+footer { margin-top: 3.5rem; padding-top: 1.2rem; border-top: 3px double var(--rule); font-size: .9rem; color: var(--muted); }
+footer p { margin-bottom: .7rem; }
+
+@media (max-width: 560px) {
+  body { font-size: 16px; }
+  figure.docs .pair { grid-template-columns: 1fr; }
+  .ledger li { grid-template-columns: 4.4rem 1fr; }
+  .ledger li .chip { grid-column: 2; justify-self: start; }
+  .legend li { grid-template-columns: 1fr; gap: .25rem; }
+}
+</style>
+
+<div class="wrap">
+<header class="hero">
+  <p class="eyebrow">A family history, checked against the record</p>
+  <h1>Gregorio B. Lontok</h1>
+  <p class="dates">Lolo, agronomist of the Negros cane fields, 1894 to 1959</p>
+  <p class="lede">He grew up in Batangas, studied agriculture at Los Baños, and spent the late 1920s running sugarcane trials on the haciendas of Negros. He ended his career as Superintendent of La Granja Experiment Station in La Carlota. This page tests the family's own account of his life against old journals, directories, and indexes, and it links every claim to its source.</p>
+</header>
+
+<section class="legend" aria-labelledby="legend-h">
+  <h3 id="legend-h">How to read the labels</h3>
+  <ul>
+    <li><span class="chip a">Confirmed</span><span>A source outside the family papers says it.</span></li>
+    <li><span class="chip b">Partial</span><span>A source supports part of it or fits it closely.</span></li>
+    <li><span class="chip c">Family only</span><span>So far it appears only in the family's own documents.</span></li>
+  </ul>
+  <p>Family only doesn't mean wrong. It means nobody has found the paper trail yet.</p>
+</section>
+
+<section class="ledger" aria-labelledby="ledger-h">
+  <h3 id="ledger-h">His life at a glance</h3>
+  <ol>
+    <li><span class="yr">1894</span><span class="ev">Born December 24 in Batangas. The family says Taysan.</span><span class="chip a">Confirmed</span></li>
+    <li><span class="yr">1917</span><span class="ev">Collects a fungus specimen at Los Baños, now in a USDA collection</span><span class="chip a">Confirmed</span></li>
+    <li><span class="yr">1920</span><span class="ev">Graduates Bachelor of Agriculture, April 5</span><span class="chip a">Confirmed</span></li>
+    <li><span class="yr">1923</span><span class="ev">Earns the supplementary B.S.A. while running a USDA citrus project</span><span class="chip a">Confirmed</span></li>
+    <li><span class="yr">1926&ndash;31</span><span class="ev">Field experimenter at Binalbagan, La Carlota, and Ma-ao</span><span class="chip a">Confirmed</span></li>
+    <li><span class="yr">1928</span><span class="ev">Publishes "Fertilizer Experiments at Binalbagan" in Sugar News</span><span class="chip a">Confirmed</span></li>
+    <li><span class="yr">1934</span><span class="ev">Technical adviser to Hacienda Ynchausti &amp; Co., Sara-Ajuy, Iloilo</span><span class="chip a">Confirmed</span></li>
+    <li><span class="yr">1943&ndash;44</span><span class="ev">Plants 16 hectares of cassava that feed five towns</span><span class="chip c">Family only</span></li>
+    <li><span class="yr">1949</span><span class="ev">Listed with the Bureau of Plant Industry near La Granja</span><span class="chip b">Partial</span></li>
+    <li><span class="yr">1957</span><span class="ev">Superintendent, La Granja Experiment Station</span><span class="chip a">Confirmed</span></li>
+    <li><span class="yr">1959</span><span class="ev">Dies February 22 in Bacolod</span><span class="chip b">Partial</span></li>
+  </ol>
+</section>
+
+<h2><span class="yrs">Summary</span>What the record shows</h2>
+{{LEDE}}
+
+{{BODY}}
+
+<footer>
+  <p>How this was researched: in September 2026, research agents searched digitized journals and directories on Internet Archive and Google Books, plus genealogy indexes, with Firecrawl and Tavily. They also searched the Consensus and Elicit scholarly databases. Those two had no records of him, which is expected for 1920s trade-journal work, but they supplied the scientific background on mosaic disease, P.O.J. 2878, and cassava. A separate pass then re-opened the key sources to check the quotations and labels.</p>
+  <p>This is a draft. If you know something the record doesn't, or spot a mistake, please tell Greg so the page can be corrected.</p>
+</footer>
+</div>
